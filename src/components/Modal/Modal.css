@@ -1,0 +1,181 @@
+.modal .overlay{
+  width: 100vw;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+}
+
+.overlay {
+  background: rgba(93, 109, 202, 0.8);
+  position: fixed;
+  display: flex;
+  justify-content: left;
+}
+
+.overlay-image {
+  width: 30%;
+}
+
+.modal-content {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1.4;
+  background: #f1f1f1;
+  padding: 14px 28px;
+  max-width: 700px;
+  min-width: 400px;
+  border-radius: 10%;
+  font-size: 20px;
+  display: grid;
+  grid-template-rows: 100px 50px 50px 50px 50px 50px;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  height: 400px;
+  grid-template-areas:
+    "name origin"
+    "img-modal gender"
+    "img-modal species"
+    "img-modal status"
+    "img-modal location"
+    "img-modal episodes";
+  align-items: center;
+  justify-content: center;
+}
+
+p {
+  margin-left: 10px;
+  opacity: 100%;
+  color: #a4a554;
+}
+
+.gender{
+  grid-area: gender;
+}
+
+.species{
+  grid-area: species;
+  align-items: center;
+  justify-content: center;
+}
+
+.location {
+  grid-area: location;
+  align-items: center;
+  justify-content: center;
+}
+
+.episodes {
+  grid-area: episodes;
+  align-items: center;
+  justify-content: center;
+}
+
+.location {
+  grid-area: location;
+  align-items: center;
+  justify-content: center;
+}
+
+.status{
+  grid-area: status;
+  align-items: center;
+  justify-content: center;
+}
+
+.name {
+  grid-area: name;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.origin {
+  grid-area: origin;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-modal {
+  grid-area: img-modal;
+  margin-right: 20px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin-left: 40px;
+}
+
+@media screen and (min-width: 10px) and (max-width:640px) {
+  .modal-content {
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 1.4;
+    background: #f1f1f1;
+    padding: 14px 28px;
+    width: 100%;
+    font-size: 15px;
+    display: grid;
+    grid-template-rows: 50px 25px 25px 25px 25px 25px;
+    grid-template-columns: 0.5fr 0.5fr;
+    width: 100%;
+    height: 200px;
+    grid-template-areas:
+      "name origin"
+      "img-modal gender"
+      "img-modal species"
+      "img-modal status"
+      "img-modal location"
+      "img-modal episodes";
+    align-items: center;
+    justify-content: center;
+  }
+
+  .img-modal {
+    grid-area: img-modal;
+    margin-right: 20px;
+    height: 125px;
+    width: 125px;
+    align-items: center;
+    justify-content: center;
+    margin-left: 40px;
+    border-radius: 50%;
+  }
+
+  .overlay {
+    background: rgba(93, 109, 202, 0.8);
+    position: fixed;
+    display: flex;
+    justify-content: left;
+  }
+
+  .overlay-image {
+    width: 0%;
+    height: 0%;
+  }
+}
+
+
+
+@media screen and (min-width: 641px) and (max-width:1090px) {
+  .overlay {
+    background: rgba(93, 109, 202, 0.8);
+    position: fixed;
+  }
+
+  .img-modal {
+    height: 250px;
+    width: 250px;    
+    border-radius: 50%;
+    margin-left: 40px;
+  }
+
+  .overlay-image {
+    width: 0%;
+    height: 0%;
+  }
+}

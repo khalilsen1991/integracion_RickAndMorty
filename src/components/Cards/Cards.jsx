@@ -1,43 +1,55 @@
-import { useEffect, useState } from "react"
-import characters from "../../data"
+import { useState } from 'react'
+import { Card } from '../Card/Card'
 import './Cards.css'
-import { SearchBar } from "../SearchBar/Searchbar"
+const image = require('../../images/charactersnotfound.png')
 
-export const Cards = () => {
-  const [charactersArray, setCharacters] = useState([])
+export const Cards = ({ characters, onClose }) => {
 
-  useEffect(() => {
-    setCharacters([
-      ...charactersArray,
-      characters
-    ])
-  }, [])
-  
-  if (charactersArray[0] && charactersArray[0].length > 0) {
+  const [modal , setModal] = useState({
+    status: false,
+    character: ''
+  })
+
+  const toggleModal = (characterId) => {
+    if(modal.status) {
+      setModal({
+        status: false,
+        character: ''
+      })
+      return modal
+    } else {
+      // eslint-disable-next-line
+      const characterFind = characters.find(character => character.id == characterId)
+      setModal({
+        status:true,
+        character: characterFind
+      })
+      return modal
+    } 
+  }
+
+  if(modal.status) {
+    document.body.classList.add('active-modal')
+  } else {
+    document.body.classList.remove('active-modal')
+  }
+
+  if (characters && characters.length > 0) {
     return (
-      <>
-        <div className="searchbar">
-          <SearchBar />
-        </div>
-        <div className="test">
-          {
-            charactersArray[0].map((character, index) => {
-              return (
-                <div className="character" key={index}>
-                  <p className="p">Name : {character.name}</p>
-                  <img className="img" src={character.image} alt={character.name} />
-                  <p className="p">Gender : {character.gender}</p>
-                  <p className="p">Specie : {character.species}</p>
-                </div>
-              )
-            })
-          }
-        </div>
-      </>
+      <div className="cards-container">
+        {
+          characters.map((character, index) => {
+            return <Card character={character} index={index} modal={modal} toggleModal={toggleModal} key={character.id} onClose={onClose}/>
+          })
+        }
+      </div>
     )
   } else {
     return (
-      <h1>Characters not found</h1>
+      <div className='nocards-container'>
+        <img src={image} alt="charactersnotfound" />
+        <h1>Characters not found</h1>
+      </div>
     )
   } 
   

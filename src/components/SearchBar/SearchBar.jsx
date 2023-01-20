@@ -1,14 +1,20 @@
+import { useState } from 'react'
 import './Searchbar.css'
 
-export const SearchBar = (props) => {
+export  const Searchbar = (props) => {
+  const [characterId, setCharacterId] = useState({ id: 0})
+
+  const handleChange = (e) => {
+    setCharacterId({
+      ...characterId,
+      id: e.target.value,
+    })
+  }
+
   return (
-  <div class="searchBox">
-    <input class="searchInput"type="text" name="" placeholder="Search"/>
-    <button class="searchButton" href="#">
-        <i class="material-icons">
-            search
-        </i>
-    </button>
-  </div>
+    <div className="search-container">
+      <input type="number" className="input" placeholder='Insert ID of character' onChange={handleChange} value={characterId.number}/>
+      <button className="button-search" onClick={() => props.onSearch(characterId)}>Search</button>
+    </div>
   )
 }
