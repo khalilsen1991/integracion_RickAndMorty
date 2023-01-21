@@ -1,10 +1,10 @@
 import './Modal.css'
 const back = require("../../images/cropped-600-600-642540.png")
-export const Modal = ({ character, toggleModal, modal }) => {
+export const Modal = ({ character, toggleModal, modal, setModal, characters }) => {
   return (
-    <div className='modal' onClick={toggleModal}>
+    <div className='modal' onClick={() => toggleModal({ characterId: character.id, modal, setModal, characters })}>
       <div className='modal-background'>
-        <div className='overlay' onClick={toggleModal}>
+        <div className='overlay' onClick={() => toggleModal({ characterId: character.id, modal, setModal, characters })}>
           <img src={back} alt='back' className='overlay-image'/>
         </div>
         <div className='modal-content'>

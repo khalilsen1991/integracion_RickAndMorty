@@ -1,32 +1,15 @@
 import { useState } from 'react'
 import { Card } from '../Card/Card'
 import './Cards.css'
+import { toggleModal } from '../../utils/functions'
 const image = require('../../images/charactersnotfound.png')
 
-export const Cards = ({ characters, onClose }) => {
+export const Cards = ({ characters, onClose, charactersArray, setCharacters }) => {
 
   const [modal , setModal] = useState({
     status: false,
     character: ''
   })
-
-  const toggleModal = (characterId) => {
-    if(modal.status) {
-      setModal({
-        status: false,
-        character: ''
-      })
-      return modal
-    } else {
-      // eslint-disable-next-line
-      const characterFind = characters.find(character => character.id == characterId)
-      setModal({
-        status:true,
-        character: characterFind
-      })
-      return modal
-    } 
-  }
 
   if(modal.status) {
     document.body.classList.add('active-modal')
@@ -39,7 +22,18 @@ export const Cards = ({ characters, onClose }) => {
       <div className="cards-container">
         {
           characters.map((character, index) => {
-            return <Card character={character} index={index} modal={modal} toggleModal={toggleModal} key={character.id} onClose={onClose}/>
+            return <Card 
+              character={character} 
+              index={index} 
+              modal={modal} 
+              toggleModal={toggleModal} 
+              key={character.id} 
+              onClose={onClose} 
+              setModal={setModal} 
+              characters={characters}
+              charactersArray={charactersArray} 
+              setCharacters={setCharacters}
+            />
           })
         }
       </div>
