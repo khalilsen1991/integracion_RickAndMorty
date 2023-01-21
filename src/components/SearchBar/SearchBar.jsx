@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './Searchbar.css'
 
-export  const Searchbar = (props) => {
+export  const Searchbar = ({ onSearch }) => {
   const [characterId, setCharacterId] = useState({ id: 0})
 
   const handleChange = (e) => {
@@ -14,7 +14,7 @@ export  const Searchbar = (props) => {
   return (
     <div className="search-container">
       <input type="number" className="input" placeholder='Insert ID of character' onChange={handleChange} value={characterId.number}/>
-      <button className="button-search" onClick={() => props.onSearch(characterId)}>Search</button>
+      <button className="button-search" onClick={() => onSearch(characterId)}>Search</button>
     </div>
   )
 }

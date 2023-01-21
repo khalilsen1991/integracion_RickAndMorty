@@ -151,11 +151,19 @@ p {
     position: fixed;
     display: flex;
     justify-content: left;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
   }
 
   .overlay-image {
     width: 0%;
     height: 0%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
   }
 }
 

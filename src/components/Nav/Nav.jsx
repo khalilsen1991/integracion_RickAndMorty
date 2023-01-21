@@ -1,10 +1,10 @@
 import { Searchbar } from "../SearchBar/Searchbar"
 import './Nav.css'
 
-export const Nav = (props) => {
+export const Nav = ({ onSearch }) => {
   return (
     <div className="search">
-      <Searchbar onSearch = {props.onSearch}/>
+      <Searchbar onSearch = {onSearch}/>
     </div>
   )
 }

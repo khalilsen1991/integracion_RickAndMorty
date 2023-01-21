@@ -24,6 +24,28 @@
 }
 
 
+@media screen and (min-width: 100px) and (max-width:640px) {
+
+  .nocards-container {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+
+  .nocards-container img {
+    height: 250px;
+    width: 250px; 
+  }
+
+  .nocards-container h1{
+    justify-self: center;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+  }
+}
+
 @media screen and (min-width: 641px) and (max-width:1090px) {
 
   .cards-container {

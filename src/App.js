@@ -36,6 +36,7 @@ function App() {
       window.alert('Ya seleccionaste a este personaje')
     }
   }
+  
   return (
     <div className='App-header'>
       <div className="navbar">
