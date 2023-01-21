@@ -15,6 +15,7 @@ export  const Searchbar = ({ onSearch, setCharacters, charactersArray }) => {
     <div className="search-container">
       <input type="number" className="input" placeholder='Insert ID of character' onChange={handleChange} value={characterId.number}/>
       <button className="button-search" onClick={() => onSearch({characterId, setCharacters, charactersArray})}>Search</button>
+      <button className="button-search" onClick={() => onSearch({characterId, setCharacters, charactersArray})}>Add random</button>
     </div>
   )
 }
