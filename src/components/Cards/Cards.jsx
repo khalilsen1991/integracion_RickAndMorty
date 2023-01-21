@@ -4,7 +4,7 @@ import './Cards.css'
 import { toggleModal } from '../../utils/functions'
 const image = require('../../images/charactersnotfound.png')
 
-export const Cards = ({ characters, onClose, charactersArray, setCharacters }) => {
+export const Cards = ({ characters, charactersArray, setCharacters }) => {
 
   const [modal , setModal] = useState({
     status: false,
@@ -28,7 +28,6 @@ export const Cards = ({ characters, onClose, charactersArray, setCharacters }) =
               modal={modal} 
               toggleModal={toggleModal} 
               key={character.id} 
-              onClose={onClose} 
               setModal={setModal} 
               characters={characters}
               charactersArray={charactersArray} 

@@ -1,7 +1,8 @@
+import { onClose } from '../../utils/functions'
 import { Modal } from '../Modal/Modal'
 import './Card.css'
 
-export const Card = ({ character, onClose, modal, toggleModal, setModal, characters, charactersArray, setCharacters }) => {
+export const Card = ({ character, modal, toggleModal, setModal, characters, charactersArray, setCharacters }) => {
   return (
     <div className="character" key={character.id}>
       <div className="character-card">

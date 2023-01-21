@@ -1,13 +1,5 @@
-const GetRandomId = () => {
-  fetch(`https://rickandmortyapi.com/api/character/`)
-  .then(resp => resp.json())
-  .then(data => {
-    if(data.error){
-      window.alert('No existe ese personaje')
-    } else {
-      return Math.floor(Math.random() * (data.info.count - 1 + 1) + 1)
-    }
-  })
+const GetRandomCharacterId = () => {
+  return Math.floor(Math.random() * (826 - 1 + 1) + 1)
 }
 
 
@@ -58,23 +50,24 @@ export const toggleModal = ({ characterId, modal, setModal, characters }) => {
 }
 
 export const getRandom = ({ setCharacters, charactersArray}) => {
-  // eslint-disable-next-line
-  const id = GetRandomId()
-  const find = charactersArray.find(character => character.id == id)
   const addCharacter = () => {
-    
+    const id = GetRandomCharacterId()
+    console.log('id : ', id)
+    // eslint-disable-next-line
+    const find = charactersArray.find(character => character.id == id)
+    if(!find){
+      fetch(`https://rickandmortyapi.com/api/character/${id}`)
+      .then(resp => resp.json())
+      .then(data => {
+        if(data.error){
+          window.alert('No existe ese personaje')
+        } else {
+          setCharacters(allCharacters => [ ...allCharacters, data])
+        }
+      })
+    } else {
+      addCharacter()
+    }
   }
-  if(!find){
-    fetch(`https://rickandmortyapi.com/api/character/${id}`)
-    .then(resp => resp.json())
-    .then(data => {
-      if(data.error){
-        window.alert('No existe ese personaje')
-      } else {
-        setCharacters(allCharacters => [ ...allCharacters, data])
-      }
-    })
-  } else {
-    window.alert('Ya seleccionaste a este personaje')
-  }
+  addCharacter()
 }

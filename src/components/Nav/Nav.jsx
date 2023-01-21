@@ -1,11 +1,10 @@
 import { Searchbar } from "../SearchBar/Searchbar"
 import './Nav.css'
 
-export const Nav = ({ onSearch, setCharacters, charactersArray }) => {
+export const Nav = ({ setCharacters, charactersArray }) => {
   return (
     <div className="search">
       <Searchbar 
-        onSearch = {onSearch} 
         setCharacters={setCharacters}
         charactersArray={charactersArray}
       />

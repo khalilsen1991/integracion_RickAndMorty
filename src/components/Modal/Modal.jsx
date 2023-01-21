@@ -1,5 +1,6 @@
 import './Modal.css'
 const back = require("../../images/cropped-600-600-642540.png")
+
 export const Modal = ({ character, toggleModal, modal, setModal, characters }) => {
   return (
     <div className='modal' onClick={() => toggleModal({ characterId: character.id, modal, setModal, characters })}>
